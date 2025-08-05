@@ -12,31 +12,33 @@ public struct GameView: View {
 
   public var body: some View {
     GeometryReader { proxy in
-      VStack(spacing: 0.0) {
-        VStack {
-          Text(store.title)
-            .font(.title)
-
-          if store.isPlayAgainButtonVisible {
-            Button("Play again?") {
-              store.send(.playAgainButtonTapped)
+      WithPerceptionTracking {
+        VStack(spacing: 0.0) {
+          VStack {
+            Text(store.title)
+              .font(.title)
+            
+            if store.isPlayAgainButtonVisible {
+              Button("Play again?") {
+                store.send(.playAgainButtonTapped)
+              }
+              .padding(.top, 12)
+              .font(.title)
             }
-            .padding(.top, 12)
-            .font(.title)
           }
-        }
-        .padding(.bottom, 48)
+          .padding(.bottom, 48)
 
-        VStack {
-          rowView(row: 0, proxy: proxy)
-          rowView(row: 1, proxy: proxy)
-          rowView(row: 2, proxy: proxy)
+          VStack {
+            rowView(row: 0, proxy: proxy)
+            rowView(row: 1, proxy: proxy)
+            rowView(row: 2, proxy: proxy)
+          }
+          .disabled(store.isGameDisabled)
         }
-        .disabled(store.isGameDisabled)
+        .navigationTitle("Tic-tac-toe")
+        .navigationBarItems(leading: Button("Quit") { store.send(.quitButtonTapped) })
+        .navigationBarBackButtonHidden(true)
       }
-      .navigationTitle("Tic-tac-toe")
-      .navigationBarItems(leading: Button("Quit") { store.send(.quitButtonTapped) })
-      .navigationBarBackButtonHidden(true)
     }
   }
 

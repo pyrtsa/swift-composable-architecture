@@ -12,14 +12,16 @@ public struct AppView: View {
   }
 
   public var body: some View {
-    switch store.case {
-    case let .login(store):
-      NavigationStack {
-        LoginView(store: store)
-      }
-    case let .newGame(store):
-      NavigationStack {
-        NewGameView(store: store)
+    WithPerceptionTracking {
+      switch store.case {
+      case let .login(store):
+        NavigationStack {
+          LoginView(store: store)
+        }
+      case let .newGame(store):
+        NavigationStack {
+          NewGameView(store: store)
+        }
       }
     }
   }

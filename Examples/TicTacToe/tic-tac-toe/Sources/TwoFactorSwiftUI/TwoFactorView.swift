@@ -5,43 +5,45 @@ import TwoFactorCore
 
 @ViewAction(for: TwoFactor.self)
 public struct TwoFactorView: View {
-  @Bindable public var store: StoreOf<TwoFactor>
+  @Perception.Bindable public var store: StoreOf<TwoFactor>
 
   public init(store: StoreOf<TwoFactor>) {
     self.store = store
   }
 
   public var body: some View {
-    Form {
-      Text(#"To confirm the second factor enter "1234" into the form."#)
+    WithPerceptionTracking {
+      Form {
+        Text(#"To confirm the second factor enter "1234" into the form."#)
 
-      Section {
-        TextField("1234", text: $store.code)
-          .keyboardType(.numberPad)
-      }
-
-      HStack {
-        Button("Submit") {
-          // NB: SwiftUI will print errors to the console about "AttributeGraph: cycle detected"
-          //     if you disable a text field while it is focused. This hack will force all
-          //     fields to unfocus before we send the action to the store.
-          // CF: https://stackoverflow.com/a/69653555
-          UIApplication.shared.sendAction(
-            #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil
-          )
-          send(.submitButtonTapped)
+        Section {
+          TextField("1234", text: $store.code)
+            .keyboardType(.numberPad)
         }
-        .disabled(store.isSubmitButtonDisabled)
 
-        if store.isActivityIndicatorVisible {
-          Spacer()
-          ProgressView()
+        HStack {
+          Button("Submit") {
+            // NB: SwiftUI will print errors to the console about "AttributeGraph: cycle detected"
+            //     if you disable a text field while it is focused. This hack will force all
+            //     fields to unfocus before we send the action to the store.
+            // CF: https://stackoverflow.com/a/69653555
+            UIApplication.shared.sendAction(
+              #selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil
+            )
+            send(.submitButtonTapped)
+          }
+          .disabled(store.isSubmitButtonDisabled)
+
+          if store.isActivityIndicatorVisible {
+            Spacer()
+            ProgressView()
+          }
         }
       }
+      .alert($store.scope(state: \.alert, action: \.alert))
+      .disabled(store.isFormDisabled)
+      .navigationTitle("Confirmation Code")
     }
-    .alert($store.scope(state: \.alert, action: \.alert))
-    .disabled(store.isFormDisabled)
-    .navigationTitle("Confirmation Code")
   }
 }
 
