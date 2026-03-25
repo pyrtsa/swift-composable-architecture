@@ -540,7 +540,7 @@ private enum ReducerCase {
         return """
           var \(name): CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<\(type.trimmed)>> {
           CasePaths.AnyCasePath(
-          embed: CaseScope.\(name),
+          embed: { CaseScope.\(name)($0) },
           extract: { guard case let .\(name)(v0) = $0 else { return nil }; return v0 }
           )
           }
@@ -552,7 +552,7 @@ private enum ReducerCase {
         return """
           var \(name): CasePaths.AnyCasePath<CaseScope, \(parameter.type.trimmed)> {
           CasePaths.AnyCasePath(
-          embed: CaseScope.\(name),
+          embed: { CaseScope.\(name)($0) },
           extract: { guard case let .\(name)(v0) = $0 else { return nil }; return v0 }
           )
           }

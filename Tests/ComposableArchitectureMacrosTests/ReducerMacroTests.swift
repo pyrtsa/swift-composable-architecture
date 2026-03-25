@@ -354,7 +354,9 @@
             struct AllCasePaths {
               var activity: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Activity>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.activity,
+                  embed: {
+                    CaseScope.activity($0)
+                  },
                   extract: {
                     guard case let .activity(v0) = $0 else {
                       return nil
@@ -365,7 +367,9 @@
               }
               var timeline: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Timeline>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.timeline,
+                  embed: {
+                    CaseScope.timeline($0)
+                  },
                   extract: {
                     guard case let .timeline(v0) = $0 else {
                       return nil
@@ -376,7 +380,9 @@
               }
               var tweet: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Tweet>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.tweet,
+                  embed: {
+                    CaseScope.tweet($0)
+                  },
                   extract: {
                     guard case let .tweet(v0) = $0 else {
                       return nil
@@ -387,7 +393,9 @@
               }
               var alert: CasePaths.AnyCasePath<CaseScope, AlertState<Alert>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.alert,
+                  embed: {
+                    CaseScope.alert($0)
+                  },
                   extract: {
                     guard case let .alert(v0) = $0 else {
                       return nil
@@ -473,7 +481,9 @@
             struct AllCasePaths {
               var timeline: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Timeline>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.timeline,
+                  embed: {
+                    CaseScope.timeline($0)
+                  },
                   extract: {
                     guard case let .timeline(v0) = $0 else {
                       return nil
@@ -484,7 +494,9 @@
               }
               var meeting: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Meeting>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.meeting,
+                  embed: {
+                    CaseScope.meeting($0)
+                  },
                   extract: {
                     guard case let .meeting(v0) = $0 else {
                       return nil
@@ -732,7 +744,9 @@
             struct AllCasePaths {
               var alert: CasePaths.AnyCasePath<CaseScope, AlertState<Never>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.alert,
+                  embed: {
+                    CaseScope.alert($0)
+                  },
                   extract: {
                     guard case let .alert(v0) = $0 else {
                       return nil
@@ -812,7 +826,9 @@
             struct AllCasePaths {
               var activity: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Activity>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.activity,
+                  embed: {
+                    CaseScope.activity($0)
+                  },
                   extract: {
                     guard case let .activity(v0) = $0 else {
                       return nil
@@ -823,7 +839,9 @@
               }
               var timeline: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Timeline>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.timeline,
+                  embed: {
+                    CaseScope.timeline($0)
+                  },
                   extract: {
                     guard case let .timeline(v0) = $0 else {
                       return nil
@@ -904,7 +922,9 @@
             struct AllCasePaths {
               var timeline: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Timeline>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.timeline,
+                  embed: {
+                    CaseScope.timeline($0)
+                  },
                   extract: {
                     guard case let .timeline(v0) = $0 else {
                       return nil
@@ -915,7 +935,9 @@
               }
               var meeting: CasePaths.AnyCasePath<CaseScope, Meeting> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.meeting,
+                  embed: {
+                    CaseScope.meeting($0)
+                  },
                   extract: {
                     guard case let .meeting(v0) = $0 else {
                       return nil
@@ -997,7 +1019,9 @@
             struct AllCasePaths {
               var alert: CasePaths.AnyCasePath<CaseScope, AlertState<Alert>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.alert,
+                  embed: {
+                    CaseScope.alert($0)
+                  },
                   extract: {
                     guard case let .alert(v0) = $0 else {
                       return nil
@@ -1008,7 +1032,9 @@
               }
               var dialog: CasePaths.AnyCasePath<CaseScope, ConfirmationDialogState<Dialog>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.dialog,
+                  embed: {
+                    CaseScope.dialog($0)
+                  },
                   extract: {
                     guard case let .dialog(v0) = $0 else {
                       return nil
@@ -1101,7 +1127,9 @@
             struct AllCasePaths {
               var drillDown: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Counter>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.drillDown,
+                  embed: {
+                    CaseScope.drillDown($0)
+                  },
                   extract: {
                     guard case let .drillDown(v0) = $0 else {
                       return nil
@@ -1112,7 +1140,9 @@
               }
               var popover: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Counter>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.popover,
+                  embed: {
+                    CaseScope.popover($0)
+                  },
                   extract: {
                     guard case let .popover(v0) = $0 else {
                       return nil
@@ -1123,7 +1153,9 @@
               }
               var sheet: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Counter>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.sheet,
+                  embed: {
+                    CaseScope.sheet($0)
+                  },
                   extract: {
                     guard case let .sheet(v0) = $0 else {
                       return nil
@@ -1199,7 +1231,9 @@
             struct AllCasePaths {
               var feature: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<Nested.Feature>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.feature,
+                  embed: {
+                    CaseScope.feature($0)
+                  },
                   extract: {
                     guard case let .feature(v0) = $0 else {
                       return nil
@@ -1554,7 +1588,9 @@
             struct AllCasePaths {
               var child: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<ChildFeature>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.child,
+                  embed: {
+                    CaseScope.child($0)
+                  },
                   extract: {
                     guard case let .child(v0) = $0 else {
                       return nil
@@ -1566,7 +1602,9 @@
               #if os(macOS)
               var mac: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<MacFeature>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.mac,
+                  embed: {
+                    CaseScope.mac($0)
+                  },
                   extract: {
                     guard case let .mac(v0) = $0 else {
                       return nil
@@ -1577,7 +1615,9 @@
               }
               var macAlert: CasePaths.AnyCasePath<CaseScope, AlertState<MacAlert>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.macAlert,
+                  embed: {
+                    CaseScope.macAlert($0)
+                  },
                   extract: {
                     guard case let .macAlert(v0) = $0 else {
                       return nil
@@ -1589,7 +1629,9 @@
               #elseif os(iOS)
               var phone: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<PhoneFeature>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.phone,
+                  embed: {
+                    CaseScope.phone($0)
+                  },
                   extract: {
                     guard case let .phone(v0) = $0 else {
                       return nil
@@ -1601,7 +1643,9 @@
               #else
               var other: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<OtherFeature>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.other,
+                  embed: {
+                    CaseScope.other($0)
+                  },
                   extract: {
                     guard case let .other(v0) = $0 else {
                       return nil
@@ -1629,7 +1673,9 @@
               #if INNER
               var inner: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<InnerFeature>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.inner,
+                  embed: {
+                    CaseScope.inner($0)
+                  },
                   extract: {
                     guard case let .inner(v0) = $0 else {
                       return nil
@@ -1640,7 +1686,9 @@
               }
               var innerDialog: CasePaths.AnyCasePath<CaseScope, ConfirmationDialogState<InnerDialog>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.innerDialog,
+                  embed: {
+                    CaseScope.innerDialog($0)
+                  },
                   extract: {
                     guard case let .innerDialog(v0) = $0 else {
                       return nil
@@ -1759,7 +1807,9 @@
             struct AllCasePaths {
               var child: CasePaths.AnyCasePath<CaseScope, ComposableArchitecture.StoreOf<ChildFeature>> {
                 CasePaths.AnyCasePath(
-                  embed: CaseScope.child,
+                  embed: {
+                    CaseScope.child($0)
+                  },
                   extract: {
                     guard case let .child(v0) = $0 else {
                       return nil
